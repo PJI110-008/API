@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max_allowed_packet=32505856
+    volumes:
+      - ./docker/mysqldata:/var/lib/mysql
+    # networks:
+    #   - private
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+       - "3306:3306"
+
+# networks:
+#   private:
