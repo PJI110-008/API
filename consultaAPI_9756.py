@@ -1,7 +1,7 @@
 import requests
 from connect_mysql import conectar
 
-def consultaAPI_9756_idade_cor_ou_raça(url: str) -> dict:
+def consultaAPI_9756_idade_cor_ou_raca(url: str) -> dict:
     try:
         
         resposta = requests.get(url)
@@ -31,7 +31,7 @@ def insert_data_into_database(conn, cor_raca, grande_regiao, porcentagem):
 # Conectar ao banco de dados
 conn = conectar()
 url= 'https://servicodados.ibge.gov.br/api/v3/agregados/9756/periodos/2022/variaveis/10613|8845?localidades=N2[all]&classificacao=86[2777,2778,2779,2780]'
-data = consultaAPI_9756_idade_cor_ou_raça(url)
+data = consultaAPI_9756_idade_cor_ou_raca(url)
 
 # Iterar sobre os resultados
 for resultado in data[0]['resultados']:

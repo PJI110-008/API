@@ -31,12 +31,12 @@ def index():
                 row_dict[colunas[i]] = value
             resultado_dict.append(row_dict)
 
+        cursor.close()
+        conexao.close()
+        return json.dumps(resultado_dict)
     except mysql.connector.Error as erro:
         print(f"Erro ao conecar com o banco de dados: {erro}")
         resultado_dict = []
-    finally:
-        cursor.close()
-        conexao.close()
         return json.dumps(resultado_dict)
    
 

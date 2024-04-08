@@ -1,15 +1,28 @@
 services:
+  api:
+    build:
+      target: runner
+    command: python __init__.py
+    ports:
+      - 5000:5000
+    networks:
+      - private
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
   db:
     image: mysql:5.7
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max_allowed_packet=32505856
     volumes:
       - ./docker/mysqldata:/var/lib/mysql
-    # networks:
-    #   - private
+    networks:
+      - private
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=Database_PI
     ports:
        - "3306:3306"
 
-# networks:
-#   private:
+networks:
+  private:
