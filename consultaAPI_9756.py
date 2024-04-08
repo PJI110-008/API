@@ -1,5 +1,5 @@
 import requests
-from conect_mysql import conectar
+from connect_mysql import conectar
 
 def consultaAPI_9756_idade_cor_ou_raça(url: str) -> dict:
     try:
