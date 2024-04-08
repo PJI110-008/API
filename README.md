@@ -13,3 +13,21 @@ CREATE TABLE 9756_idade_cor_ou_raca (
     Porcentagem INTEGER
 );
 ```
+
+## Utilizando a API
+
+Necessário ter o docker instalado para rodar basta usar:
+
+```sh
+docker compose -f "docker-compose.yml" up -d --build
+```
+
+Isso executará os containers do python e MySQL em segundo plano a partir do Docker, para criar as tables do banco é só seguir do tutorial acima, e para popular os dados basta rodar o seguinte script:
+
+```sh
+docker compose exec api python consultaAPI_9756.py
+```
+
+Após isso, basta acessar o endpoint principal:
+
+http://localhost:5000
