@@ -16,7 +16,7 @@ def index():
             return []
         cursor = conexao.cursor()
 
-        sql = "SELECT * from 9756_idade_cor_ou_raça"
+        sql = "SELECT * from 9756_idade_cor_ou_raca"
         cursor.execute(sql)
         resultado = cursor.fetchall()
 
