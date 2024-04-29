@@ -42,9 +42,9 @@ for resultado in data[0]['resultados']:
             cor_raca = resultado['classificacoes'][0]['categoria'][categoria_id]
             for serie in resultado['series']:
                 grande_regiao = serie['localidade']['nome']
-                serie_valor = serie['serie']['2022']
-                # Inserir os dados no banco de dados
-                insert_data_into_database(conn, cor_raca, grande_regiao, serie_valor)
+                for ano, valor in serie['serie'].items():
+                    # Inserir os dados no banco de dados
+                    insert_data_into_database(conn, cor_raca, grande_regiao, ano, valor)
 
 # Fechar a conexão com o banco de dados
 conn.close()
