@@ -22,7 +22,7 @@ def consultaAPI_9756_idade_cor_ou_raca(url: str) -> dict:
 def insert_data_into_database(conn, cor_raca, grande_regiao, porcentagem):
     cur = conn.cursor()
     query = f"INSERT INTO 9756_idade_cor_ou_raca (Cor_ou_raca, Grande_Regiao, ano, Porcentagem) VALUES (%s, %s, %s)"
-    cur.execute(query, (cor_raca, grande_regiao, porcentagem))
+    cur.execute(query, (cor_raca, grande_regiao, ano, porcentagem))
     conn.commit()
     cur.close()
 
