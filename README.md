@@ -10,7 +10,7 @@ CREATE TABLE 9756_idade_cor_ou_raca (
     id SERIAL PRIMARY KEY,
     Cor_ou_raca VARCHAR(100),
     Grande_Regiao VARCHAR(100),
-    Grande_Regiao VARCHAR(100),
+    Ano VARCHAR(100),
     Porcentagem INTEGER
 );
 ```
