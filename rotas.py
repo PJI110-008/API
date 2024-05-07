@@ -1,3 +1,11 @@
+from flask import Flask, Blueprint
+from connect_mysql import conectar
+import json
+import mysql.connector
+
+# Cria um objeto Blueprint para as rotas
+bp_rotas = Blueprint('rotas', __name__)
+
 @bp_rotas.route('/consulta/<ano>')
 def consulta_por_ano(ano):
     try:
