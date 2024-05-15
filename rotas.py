@@ -1,3 +1,4 @@
+# coding=utf-8
 from flask import Flask, Blueprint
 from connect_mysql import conectar
 import json
