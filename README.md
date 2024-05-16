@@ -32,3 +32,11 @@ docker compose exec api python consultaAPI_9756.py
 Após isso, basta acessar o endpoint principal:
 
 http://localhost:5000
+
+## Migrations
+
+```bash
+# python manage.py db init # initializing the database
+python manage.py db migrate
+python manage.py db upgrade
+```

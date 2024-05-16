@@ -17,8 +17,11 @@ FROM python:3.8.10-slim AS runner
 
 WORKDIR /app/
 
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev
+
 COPY --from=compiler /usr/local /usr/local
 
 COPY . /app/
 
-CMD ["python", "__init__.py"]
+CMD ["./start_server.sh"]

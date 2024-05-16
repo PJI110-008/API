@@ -1,5 +1,8 @@
-flask
-flask-cors
+Flask
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-cors
 mysql-connector
 mysqlclient
 requests
+pymysql
