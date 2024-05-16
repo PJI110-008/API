@@ -21,7 +21,7 @@ def consulta_por_ano(ano):
         cursor = conexao.cursor()
 
         sql = f"SELECT * from 9756_idade_cor_ou_raca WHERE Ano %s"
-        cursor.execute(sql, (ano,))
+        cursor.execute(sql, (ano))
         resultado = cursor.fetchall()
 
         # Obter os nomes das colunas
