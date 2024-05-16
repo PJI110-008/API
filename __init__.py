@@ -16,8 +16,8 @@ def consulta_por_ano(ano):
     try:
         conexao = conectar()
         
-        if conexao is None:
-            return []
+        #if conexao is None:
+        #    return []
         cursor = conexao.cursor()
 
         sql = f"SELECT * from 9756_idade_cor_ou_raca WHERE Ano = %s"
