@@ -1,6 +1,7 @@
 from app import app, db
 from app.models.tables import IdadeCorOuRaca
 from app.funcs.req_main import consultaAPI
+from flask import jsonify
 
 @app.route('/health-check')
 def health_check():
@@ -8,9 +9,10 @@ def health_check():
 
 @app.route('/', methods=['GET'])
 def index():
-    r = IdadeCorOuRaca.query.all()
-    print(r)
-    return 'OK'
+    results = IdadeCorOuRaca.query.all()
+    print(results)
+    results_dict = [result.to_dict() for result in results]
+    return jsonify(results_dict)
 
 @app.route('/populate', methods=['GET'])
 def populate():

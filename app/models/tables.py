@@ -15,3 +15,12 @@ class IdadeCorOuRaca(db.Model):
     
     def __repr__(self):
         return '<IdadeCorOuRaca %r>' % self.cor_ou_raca
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'cor_ou_raca': self.cor_ou_raca,
+            'grande_regiao': self.grande_regiao,
+            'ano': self.ano,
+            'porcentagem': self.porcentagem,
+        }
