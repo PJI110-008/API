@@ -16,7 +16,7 @@ def consulta_por_ano(ano):
             return []
         cursor = conexao.cursor()
 
-        sql = f"SELECT * from 9756_idade_cor_ou_raca WHERE Ano %s"
+        sql = f"SELECT * from 9756_idade_cor_ou_raca WHERE Ano = %s"
         cursor.execute(sql, (ano,))
         resultado = cursor.fetchall()
 
