@@ -16,6 +16,7 @@ def index():
 
 @app.route('/populate', methods=['GET'])
 def populate():
+    #Caso o arquivo rendimento_pdc mude de local, ajustar o caminho abaixo
     file_path = 'docs/rendimento_pdc.xlsx'
     if not IdadeCorOuRaca.query.first(): 
         data = consultaAPI('https://servicodados.ibge.gov.br/api/v3/agregados/9756/periodos/2022/variaveis/10613|8845?localidades=N2[all]&classificacao=86[2777,2778,2779,2780]')
