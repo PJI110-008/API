@@ -24,3 +24,26 @@ class IdadeCorOuRaca(db.Model):
             'ano': self.ano,
             'porcentagem': self.porcentagem,
         }
+########################################################################
+
+class RendimentoPcd(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    rotulo = db.Column(db.String(100), index=True, nullable=False)
+    pessoa_com_deficiencia = db.Column(db.Integer, nullable=False)
+    pessoa_sem_deficiencia = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, rotulo, pessoa_com_deficiencia, pessoa_sem_deficiencia):
+        self.rotulo = rotulo
+        self.pessoa_com_deficiencia = pessoa_com_deficiencia
+        self.pessoa_sem_deficiencia = pessoa_sem_deficiencia
+    
+    def __repr__(self):
+        return '<RendimentoPcd %r>' % self.rotulo
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'pessoa_com_deficiencia': self.pessoa_com_deficiencia,
+            'pessoa_sem_deficiencia': self.pessoa_sem_deficiencia,
+            'rotulo': self.rotulo
+        }
