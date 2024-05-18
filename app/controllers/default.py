@@ -2,6 +2,7 @@ from app import app, db
 from app.models.tables import IdadeCorOuRaca, RendimentoPcd
 from app.funcs.req_main import consultaAPI
 from flask import jsonify
+import pandas as pd
 
 @app.route('/health-check')
 def health_check():
