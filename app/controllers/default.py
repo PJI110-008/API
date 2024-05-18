@@ -15,6 +15,13 @@ def index():
     results_dict = [result.to_dict() for result in results]
     return jsonify(results_dict)
 
+@app.route('/rendimento-pcd', methods=['GET'])
+def rendimentoPcd():
+    results = RendimentoPcd.query.all()
+    print(results)
+    results_dict = [result.to_dict() for result in results]
+    return jsonify(results_dict)
+
 @app.route('/populate', methods=['GET'])
 def populate():
     #Caso o arquivo rendimento_pdc mude de local, ajustar o caminho abaixo
