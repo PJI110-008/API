@@ -63,13 +63,13 @@ def populate():
                     #,"total_geral": row["Total Geral"]
                 })
             #return processed_rows
-            for row in processed_rows:
-                rotulo = row['rotulo']
-                pessoa_com_deficienciaprint = row['pessoa_com_deficiencia']
-                pessoa_sem_deficiencia = row['pessoa_sem_deficiencia']
-                i = RendimentoPcd(rotulo,pessoa_com_deficienciaprint,pessoa_sem_deficiencia)
-                db.session.add(i)
-                db.session.commit()
+        for row in processed_rows:
+            rotulo = row['rotulo']
+            pessoa_com_deficienciaprint = row['pessoa_com_deficiencia']
+            pessoa_sem_deficiencia = row['pessoa_sem_deficiencia']
+            i = RendimentoPcd(rotulo,pessoa_com_deficienciaprint,pessoa_sem_deficiencia)
+            db.session.add(i)
+            db.session.commit()
         return 'DATA INSERTED'
     else:
         return 'DATA ALREADY IN USE'
