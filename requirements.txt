@@ -6,3 +6,4 @@ mysql-connector
 mysqlclient
 requests
 pymysql
+pandas
