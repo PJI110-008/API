@@ -1,3 +1,4 @@
+# coding=utf-8
 from flask import Flask, Blueprint
 from connect_mysql import conectar
 import json
@@ -6,9 +7,8 @@ import mysql.connector
 # Cria um objeto Blueprint para as rotas
 bp_rotas = Blueprint('rotas', __name__)
 
-# Define as rotas dentro do blueprint
-@bp_rotas.route('/')
-def index():
+@bp_rotas.route('/consulta/<ano>')
+def consulta_por_ano(ano):
     try:
         conexao = conectar()
         
@@ -16,8 +16,8 @@ def index():
             return []
         cursor = conexao.cursor()
 
-        sql = "SELECT * from 9756_idade_cor_ou_raca"
-        cursor.execute(sql)
+        sql = f"SELECT * from 9756_idade_cor_ou_raca WHERE Ano %s"
+        cursor.execute(sql, (ano,))
         resultado = cursor.fetchall()
 
         # Obter os nomes das colunas
@@ -35,8 +35,6 @@ def index():
         conexao.close()
         return json.dumps(resultado_dict)
     except mysql.connector.Error as erro:
-        print(f"Erro ao conecar com o banco de dados: {erro}")
+        print(f"Erro ao conectar com o banco de dados: {erro}")
         resultado_dict = []
         return json.dumps(resultado_dict)
-   
-

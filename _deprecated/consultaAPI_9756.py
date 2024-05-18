@@ -1,3 +1,4 @@
+# coding=utf-8
 import requests
 from connect_mysql import conectar
 
@@ -21,8 +22,8 @@ def consultaAPI_9756_idade_cor_ou_raca(url: str) -> dict:
 # Função para inserir os dados no banco de dados
 def insert_data_into_database(conn, cor_raca, grande_regiao, porcentagem):
     cur = conn.cursor()
-    query = f"INSERT INTO 9756_idade_cor_ou_raca (Cor_ou_raca, Grande_Regiao, Porcentagem) VALUES (%s, %s, %s)"
-    cur.execute(query, (cor_raca, grande_regiao, porcentagem))
+    query = f"INSERT INTO 9756_idade_cor_ou_raca (Cor_ou_raca, Grande_Regiao, Ano, Porcentagem) VALUES (%s, %s, %s, %s)"
+    cur.execute(query, (cor_raca, grande_regiao, ano, porcentagem))
     conn.commit()
     cur.close()
 
@@ -42,9 +43,9 @@ for resultado in data[0]['resultados']:
             cor_raca = resultado['classificacoes'][0]['categoria'][categoria_id]
             for serie in resultado['series']:
                 grande_regiao = serie['localidade']['nome']
-                serie_valor = serie['serie']['2022']
-                # Inserir os dados no banco de dados
-                insert_data_into_database(conn, cor_raca, grande_regiao, serie_valor)
+                for ano, valor in serie['serie'].items():
+                    # Inserir os dados no banco de dados
+                    insert_data_into_database(conn, cor_raca, grande_regiao, ano, valor)
 
 # Fechar a conexão com o banco de dados
 conn.close()

@@ -3,7 +3,6 @@ services:
     build:
       context: ./
       target: runner
-    command: python __init__.py
     ports:
       - 5000:5000
     networks:
