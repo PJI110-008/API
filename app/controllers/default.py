@@ -65,7 +65,7 @@ def populate():
                 rotulo = row['rotulo']
                 pessoa_com_deficienciaprint = row['pessoa_com_deficiencia']
                 pessoa_sem_deficiencia = row['pessoa_sem_deficiencia']
-                aux = RendimentoPcd(rotulo,pessoa_com_deficienciaprint,pessoa_sem_deficiencia)
+                i = RendimentoPcd(rotulo,pessoa_com_deficienciaprint,pessoa_sem_deficiencia)
                 db.session.add(i)
                 db.session.commit()
         return 'DATA INSERTED'
