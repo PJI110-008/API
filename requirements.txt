@@ -7,3 +7,4 @@ mysqlclient
 requests
 pymysql
 pandas
+openpyxl
